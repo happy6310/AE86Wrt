@@ -1,4 +1,4 @@
-name: Update Build_redmi_ax6000
+name: Build_redmi_ax6000
 on:
   repository_dispatch:
   workflow_dispatch:
