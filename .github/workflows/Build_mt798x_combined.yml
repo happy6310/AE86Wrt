@@ -15,37 +15,37 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - soc: "mt7981"
-            config_file: "./configs/ARM/mt798x/mt7981.config"
-            description: "AE86Wrt-MT7981"
-            type: "standard"
+          # - soc: "mt7981"
+          #   config_file: "./configs/ARM/mt798x/mt7981.config"
+          #   description: "AE86Wrt-MT7981"
+          #   type: "standard"
 
           - soc: "mt7986"
             config_file: "./configs/ARM/mt798x/mt7986.config"
             description: "AE86Wrt-MT7986"
             type: "standard"
           
-          - model: "mt3000"
-            soc_prefix: "mt7981"
-            config_file: "./configs/ARM/mt798x/mt3000.config"
-            output_file: "immortalwrt-mediatek-mt7981-glinet_gl-mt3000-squashfs-sysupgrade.tar"
-            output_suffix: "tar"
-            description: "AE86Wrt-GL-MT3000"
-            type: "gl"
+          # - model: "mt3000"
+          #   soc_prefix: "mt7981"
+          #   config_file: "./configs/ARM/mt798x/mt3000.config"
+          #   output_file: "immortalwrt-mediatek-mt7981-glinet_gl-mt3000-squashfs-sysupgrade.tar"
+          #   output_suffix: "tar"
+          #   description: "AE86Wrt-GL-MT3000"
+          #   type: "gl"
 
-          - model: "mt6000"
-            soc_prefix: "mt7986"
-            config_file: "./configs/ARM/mt798x/mt6000.config"
-            output_file: "immortalwrt-mediatek-mt7986-glinet_gl-mt6000-squashfs-sysupgrade.bin"
-            output_suffix: "bin"
-            description: "AE86Wrt-GL-MT6000"
-            type: "gl"
+          # - model: "mt6000"
+          #   soc_prefix: "mt7986"
+          #   config_file: "./configs/ARM/mt798x/mt6000.config"
+          #   output_file: "immortalwrt-mediatek-mt7986-glinet_gl-mt6000-squashfs-sysupgrade.bin"
+          #   output_suffix: "bin"
+          #   description: "AE86Wrt-GL-MT6000"
+          #   type: "gl"
     steps:
       - name: Clone Repository
         uses: actions/checkout@main
 
       - name: Free disk space
-        uses: xiangfeidexiaohuo/actions@free-disk
+        uses: happy6310/actions@free-disk
         with:
           build-mount-path: /home/runner/work/AE86Wrt/AE86Wrt
  
@@ -64,7 +64,7 @@ jobs:
           REPO_URL: https://github.com/hanwckf/immortalwrt-mt798x
           REPO_BRANCH: openwrt-21.02
         run: |
-          git clone https://github.com/xiangfeidexiaohuo/AE86Wrt.git && mv ./AE86Wrt/* ./ && rm -rf ./AE86Wrt
+          git clone https://github.com/happy6310/AE86Wrt.git && mv ./AE86Wrt/* ./ && rm -rf ./AE86Wrt
           git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt-${{ matrix.soc || matrix.model }}
           cd openwrt-${{ matrix.soc || matrix.model }}
           cp -f ../diy/mt798x/op1.sh ./
