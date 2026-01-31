@@ -20,11 +20,17 @@ jobs:
           #   description: "AE86Wrt-MT7981"
           #   type: "standard"
 
+          # - soc: "mt7986"
+          #   config_file: "./configs/ARM/mt798x/mt7986.config"
+          #   description: "AE86Wrt-MT7986"
+          #   type: "standard"
+            
           - soc: "mt7986"
-            config_file: "./configs/ARM/mt798x/mt7986.config"
-            description: "AE86Wrt-MT7986"
+            config_file: "./configs/ARM/mt798x/redmi_ax6000.config"
+            description: "AE86Wrt-MT7986-REDMI-AX6000"
             type: "standard"
-          
+
+            
           # - model: "mt3000"
           #   soc_prefix: "mt7981"
           #   config_file: "./configs/ARM/mt798x/mt3000.config"
